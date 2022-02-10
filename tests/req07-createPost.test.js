@@ -5,9 +5,9 @@ const url = 'http://localhost:3000';
 
 describe('7 - Sua aplicação deve ter o endpoint POST `/post`', () => {
   beforeEach(() => {
-    shell.exec('npx sequelize-cli db:drop');
-    shell.exec('npx sequelize-cli db:create && npx sequelize-cli db:migrate $');
-    shell.exec('npx sequelize-cli db:seed:all $');
+    shell.exec('npm run typeorm schema:drop');
+    shell.exec('npm run typeorm migration:run');
+    shell.exec('npm run seeding:run');
   });
 
   it('Será validado que é possível cadastrar um blogpost com sucesso', async () => {
